@@ -1,0 +1,7 @@
+FROM golang:latest
+
+RUN mkdir /app
+WORKDIR /app
+
+RUN go mod init mysqlUsage
+RUN go mod tidy
