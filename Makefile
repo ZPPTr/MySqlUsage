@@ -7,7 +7,14 @@ restart:
 	docker-compose up -d
 
 run-init:
-	go build -o ./bin/app && ./bin/app -initmode
+	cd src && go build -o ./../bin/app && ./bin/app -initmode
 
 run:
-	./bin/app
+	docker-compose up go
+	#cd src && go build -o ./../bin/app && ./bin/app -ips=5000
+
+init:
+	docker-compose run go /dist/main -initmode
+
+insert:
+	docker-compose run go /dist/main
